@@ -1,0 +1,15 @@
+# Config for a synced Zebra instance in a network-suppressed setup.
+
+[network]
+cache_dir = true
+max_connections_per_ip = 1000
+network = "Mainnet"
+
+[state]
+cache_dir = "tmp/cache-zebra-synced"
+delete_old_database = true
+ephemeral = false
+
+[sync]
+checkpoint_verify_concurrency_limit = 1000
+parallel_cpu_threads = 0

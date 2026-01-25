@@ -152,3 +152,33 @@ pub mod prelude;
 
 #[cfg(feature = "sentry")]
 pub mod sentry;
+
+#[cfg(feature = "jemalloc")]
+use tikv_jemallocator::Jemalloc;
+#[cfg(feature = "jemalloc")]
+#[global_allocator]
+static ALLOC: Jemalloc = Jemalloc;
+
+#[cfg(feature = "mimalloc")]
+use mimalloc::MiMalloc;
+#[cfg(feature = "mimalloc")]
+#[global_allocator]
+static ALLOC: MiMalloc = MiMalloc;
+
+#[cfg(feature = "snmalloc")]
+use snmalloc_rs::SnMalloc;
+#[cfg(feature = "snmalloc")]
+#[global_allocator]
+static ALLOC: SnMalloc = SnMalloc;
+
+#[cfg(feature = "rpmalloc")]
+use rpmalloc::RpMalloc;
+#[cfg(feature = "rpmalloc")]
+#[global_allocator]
+static ALLOC: RpMalloc = RpMalloc;
+
+#[cfg(feature = "smalloc")]
+use smmalloc::Smalloc;
+#[cfg(feature = "smalloc")]
+#[global_allocator]
+static ALLOC: Smalloc = Smalloc::new();
