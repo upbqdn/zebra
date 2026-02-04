@@ -17,6 +17,9 @@ max_connections_per_ip = 1
 network = "Mainnet"
 peerset_initial_target_size = 1
 
+[consensus]
+checkpoint_sync = false
+
 [state]
 cache_dir = "tmp/cache-zebra-isolated"
 delete_old_database = true
